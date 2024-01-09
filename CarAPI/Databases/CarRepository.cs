@@ -1,4 +1,5 @@
-﻿using CarAPI.Models;
+﻿using CarAPI.DTOs;
+using CarAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarAPI.Databases
@@ -29,9 +30,9 @@ namespace CarAPI.Databases
 			return _carsDbContext.Cars.Where(c => c.Color == color).ToList();
 		}
 
-		public void AddNewCar(Car car)
+		public void AddNewCar(CarDto car)
 		{
-
+			_carsDbContext.Cars.Add(car);
 		}
 	}
 }
